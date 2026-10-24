@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.streamlit/secrets.toml
+profiles/*.json
+exports/
+*.aux
+*.log
+*.out
+node_modules/
+dist/
+.vercel/
+.claude/settings.local.json

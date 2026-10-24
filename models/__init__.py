@@ -1,0 +1,1 @@
+"""Typed CV data models."""

@@ -1,0 +1,29 @@
+{
+  "id": "data_engineer",
+  "name": "YOUR NAME",
+  "title": "Data Engineer",
+  "summary": "Write a factual professional summary here.",
+  "contact": {
+    "email": "",
+    "phone": "",
+    "location": "",
+    "website": "",
+    "linkedin": "",
+    "github": ""
+  },
+  "experience": [],
+  "education": [],
+  "skills": [
+    {"category": "Technologies", "items": ["Add technologies you use"]}
+  ],
+  "projects": [],
+  "languages": [],
+  "interests": [],
+  "leadership_activities": [],
+  "certifications": [],
+  "awards": [],
+  "publications": [],
+  "volunteer_experience": [],
+  "active_sections": [],
+  "locale": "en"
+}

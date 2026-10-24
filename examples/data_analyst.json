@@ -1,0 +1,29 @@
+{
+  "id": "data_analyst",
+  "name": "YOUR NAME",
+  "title": "Data Analyst",
+  "summary": "Write a factual professional summary here.",
+  "contact": {
+    "email": "",
+    "phone": "",
+    "location": "",
+    "website": "",
+    "linkedin": "",
+    "github": ""
+  },
+  "experience": [],
+  "education": [],
+  "skills": [
+    {"category": "Tools", "items": ["Add tools you use"]}
+  ],
+  "projects": [],
+  "languages": [],
+  "interests": [],
+  "leadership_activities": [],
+  "certifications": [],
+  "awards": [],
+  "publications": [],
+  "volunteer_experience": [],
+  "active_sections": [],
+  "locale": "en"
+}

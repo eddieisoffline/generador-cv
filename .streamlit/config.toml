@@ -1,0 +1,166 @@
+# Visual theme for the CV workspace. Values come from the design system
+# tokens (Papel = light, Tinta = dark); utils/ui.py styles the custom parts.
+# Fonts are served locally from static/fonts (see static/fonts/README.md), so
+# the app makes no requests to Google Fonts and works offline.
+
+[server]
+enableStaticServing = true
+
+[theme]
+font = "Instrument Sans, sans-serif"
+headingFont = "Instrument Serif, Georgia, serif"
+codeFont = "JetBrains Mono, monospace"
+headingFontWeights = 400
+baseFontSize = 15
+baseRadius = "12px"
+buttonRadius = "full"
+showWidgetBorder = true
+showSidebarBorder = false
+
+# One entry per file: latin and latin-ext subsets. Carlito is only used by the
+# CV preview in utils/ui.py.
+[[theme.fontFaces]]
+family = "Instrument Sans"
+url = "app/static/fonts/InstrumentSans-normal-400-700-latin.woff2"
+weight = "400 700"
+style = "normal"
+unicodeRange = "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+
+[[theme.fontFaces]]
+family = "Instrument Sans"
+url = "app/static/fonts/InstrumentSans-normal-400-700-latin-ext.woff2"
+weight = "400 700"
+style = "normal"
+unicodeRange = "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF"
+
+[[theme.fontFaces]]
+family = "Instrument Serif"
+url = "app/static/fonts/InstrumentSerif-normal-400-latin.woff2"
+weight = "400"
+style = "normal"
+unicodeRange = "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+
+[[theme.fontFaces]]
+family = "Instrument Serif"
+url = "app/static/fonts/InstrumentSerif-normal-400-latin-ext.woff2"
+weight = "400"
+style = "normal"
+unicodeRange = "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF"
+
+[[theme.fontFaces]]
+family = "Instrument Serif"
+url = "app/static/fonts/InstrumentSerif-italic-400-latin.woff2"
+weight = "400"
+style = "italic"
+unicodeRange = "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+
+[[theme.fontFaces]]
+family = "Instrument Serif"
+url = "app/static/fonts/InstrumentSerif-italic-400-latin-ext.woff2"
+weight = "400"
+style = "italic"
+unicodeRange = "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF"
+
+[[theme.fontFaces]]
+family = "JetBrains Mono"
+url = "app/static/fonts/JetBrainsMono-normal-400-500-latin.woff2"
+weight = "400 500"
+style = "normal"
+unicodeRange = "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+
+[[theme.fontFaces]]
+family = "JetBrains Mono"
+url = "app/static/fonts/JetBrainsMono-normal-400-500-latin-ext.woff2"
+weight = "400 500"
+style = "normal"
+unicodeRange = "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF"
+
+[[theme.fontFaces]]
+family = "Carlito"
+url = "app/static/fonts/Carlito-normal-400-latin.woff2"
+weight = "400"
+style = "normal"
+unicodeRange = "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+
+[[theme.fontFaces]]
+family = "Carlito"
+url = "app/static/fonts/Carlito-normal-400-latin-ext.woff2"
+weight = "400"
+style = "normal"
+unicodeRange = "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF"
+
+[[theme.fontFaces]]
+family = "Carlito"
+url = "app/static/fonts/Carlito-normal-700-latin.woff2"
+weight = "700"
+style = "normal"
+unicodeRange = "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+
+[[theme.fontFaces]]
+family = "Carlito"
+url = "app/static/fonts/Carlito-normal-700-latin-ext.woff2"
+weight = "700"
+style = "normal"
+unicodeRange = "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF"
+
+[theme.light]
+primaryColor = "#2346d1"
+backgroundColor = "#f3f1ec"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#1a1916"
+borderColor = "#e2dfd6"
+linkColor = "#2346d1"
+codeBackgroundColor = "#eae7df"
+blueColor = "#2346d1"
+blueBackgroundColor = "#e5eafc"
+blueTextColor = "#2346d1"
+greenColor = "#1c7443"
+greenBackgroundColor = "#e2f2e7"
+greenTextColor = "#1c7443"
+orangeColor = "#97480a"
+orangeBackgroundColor = "#fcecdc"
+orangeTextColor = "#97480a"
+redColor = "#bf2a20"
+redBackgroundColor = "#fce7e4"
+redTextColor = "#bf2a20"
+yellowColor = "#6a5000"
+yellowBackgroundColor = "#fcf2c8"
+yellowTextColor = "#6a5000"
+grayColor = "#5b574e"
+grayBackgroundColor = "#eae7df"
+grayTextColor = "#5b574e"
+
+[theme.light.sidebar]
+backgroundColor = "#f3f1ec"
+secondaryBackgroundColor = "#ffffff"
+
+[theme.dark]
+primaryColor = "#93aaff"
+backgroundColor = "#131312"
+secondaryBackgroundColor = "#1c1b19"
+textColor = "#f1eee7"
+borderColor = "#2e2c28"
+linkColor = "#93aaff"
+codeBackgroundColor = "#0e0e0d"
+blueColor = "#93aaff"
+blueBackgroundColor = "#1f2748"
+blueTextColor = "#93aaff"
+greenColor = "#72d39c"
+greenBackgroundColor = "#11301f"
+greenTextColor = "#72d39c"
+orangeColor = "#f2a65f"
+orangeBackgroundColor = "#3a2511"
+orangeTextColor = "#f2a65f"
+redColor = "#ff8b80"
+redBackgroundColor = "#3d1614"
+redTextColor = "#ff8b80"
+yellowColor = "#f2d46e"
+yellowBackgroundColor = "#383012"
+yellowTextColor = "#f2d46e"
+grayColor = "#aaa498"
+grayBackgroundColor = "#0e0e0d"
+grayTextColor = "#aaa498"
+
+[theme.dark.sidebar]
+backgroundColor = "#131312"
+secondaryBackgroundColor = "#1c1b19"

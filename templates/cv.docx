@@ -1,0 +1,2 @@
+This placeholder documents that DOCX files are generated directly with python-docx.
+The application does not require a binary template and creates a valid document at export time.
