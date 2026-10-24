@@ -1,0 +1,179 @@
+{
+  "profile": {
+    "name": "Ada Example",
+    "contact": {
+      "email": "ada@example.com",
+      "phone": "",
+      "location": "Lima, Perú",
+      "website": "https://www.ada.example/",
+      "linkedin": "linkedin.com/in/ada",
+      "github": ""
+    },
+    "experience": [
+      {
+        "role": "Analyst",
+        "company": "Acme",
+        "location": "Remote",
+        "start_date": "01/2022",
+        "end_date": "",
+        "bullets": [
+          "Automated weekly reports",
+          "Reduced costs by 10%."
+        ]
+      },
+      {
+        "role": "",
+        "company": "",
+        "location": "",
+        "start_date": "",
+        "end_date": "",
+        "bullets": []
+      }
+    ],
+    "education": [
+      {
+        "degree": "BSc",
+        "institution": "Uni",
+        "location": "",
+        "start_date": "2016",
+        "end_date": "2020",
+        "details": [
+          "GPA 3.9",
+          "Honours"
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "category": "Tools",
+        "items": [
+          "Python",
+          "SQL"
+        ]
+      },
+      {
+        "category": "",
+        "items": [
+          "Excel"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Dashboard",
+        "description": "",
+        "url": "github.com/ada/dash",
+        "technologies": [
+          "React",
+          "D3"
+        ],
+        "bullets": []
+      }
+    ],
+    "languages": [
+      "Español",
+      "English"
+    ],
+    "interests": [
+      "Chess",
+      "Running"
+    ],
+    "leadership_activities": [
+      {
+        "title": "Treasurer",
+        "organization": "Club",
+        "location": "",
+        "start_date": "",
+        "end_date": "",
+        "description": "Ran budgets",
+        "bullets": [
+          "Led 12 events"
+        ]
+      }
+    ],
+    "certifications": [
+      {
+        "name": "AWS Practitioner",
+        "issuer": "",
+        "date": "",
+        "expiry_date": "",
+        "credential_id": "",
+        "url": "",
+        "description": "",
+        "details": []
+      },
+      {
+        "name": "Data Cert",
+        "issuer": "Org",
+        "date": "2023",
+        "expiry_date": "",
+        "credential_id": "X-1",
+        "url": "https://cert.example",
+        "description": "",
+        "details": []
+      }
+    ],
+    "awards": [
+      {
+        "name": "Best thesis",
+        "issuer": "",
+        "date": "",
+        "url": "",
+        "description": "",
+        "details": []
+      },
+      {
+        "name": "Scholarship",
+        "issuer": "Fund",
+        "date": "2019",
+        "url": "",
+        "description": "",
+        "details": []
+      }
+    ],
+    "publications": [
+      {
+        "title": "Paper",
+        "authors": "A. Example, B. Other",
+        "publisher": "Journal",
+        "date": "2021",
+        "url": "",
+        "description": ""
+      }
+    ],
+    "volunteer_experience": [
+      {
+        "role": "Mentor",
+        "organization": "Code Club",
+        "location": "",
+        "start_date": "",
+        "end_date": "",
+        "description": "",
+        "bullets": [
+          "Mentored 8 students"
+        ]
+      }
+    ],
+    "active_sections": [
+      "Experience",
+      "Education",
+      "Skills & Interests",
+      "Leadership & Activities",
+      "volunteer"
+    ],
+    "locale": "es"
+  },
+  "active": {
+    "experience": true,
+    "education": true,
+    "skills": true,
+    "interests": true,
+    "projects": false,
+    "leadership_activities": true,
+    "certifications": false,
+    "awards": false,
+    "publications": false,
+    "volunteer_experience": true,
+    "languages": false
+  }
+}

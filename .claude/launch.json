@@ -3,9 +3,24 @@
   "configurations": [
     {
       "name": "cv-app",
-      "runtimeExecutable": ".venv\\Scripts\\python.exe",
-      "runtimeArgs": ["-m", "streamlit", "run", "app.py", "--server.headless", "true", "--server.port", "8517"],
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": [
+        "-c",
+        "import os, sys; os.chdir('streamlit-app'); sys.argv = ['streamlit', 'run', 'app.py', '--server.headless', 'true', '--server.port', '8517']; from streamlit.web.cli import main; main()"
+      ],
       "port": 8517
+    },
+    {
+      "name": "cv-web",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "node_modules/vite/bin/vite.js",
+        "preview",
+        "--port",
+        "4173",
+        "--strictPort"
+      ],
+      "port": 4173
     }
   ]
 }

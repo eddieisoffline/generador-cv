@@ -1,0 +1,24 @@
+{
+  "id": "legacy",
+  "name": "Ada Example",
+  "title": "Not exported",
+  "summary": "Not exported either",
+  "contact": {"email": "ada@example.com", "phone": null, "location": "Lima, Perú", "website": "https://www.ada.example/", "linkedin": "linkedin.com/in/ada", "github": ""},
+  "experience": [
+    {"role": "Analyst", "company": "Acme", "location": "Remote", "start_date": "01/2022", "end_date": "", "bullets": [{"text": "Automated weekly reports"}, "Reduced costs by 10%."]},
+    "not a mapping"
+  ],
+  "education": {"degree": "BSc", "institution": "Uni", "start_date": 2016, "end_date": 2020, "details": "GPA 3.9\n\nHonours"},
+  "skills": [{"category": "Tools", "items": ["Python", " SQL ", ""]}, "Excel"],
+  "projects": [{"name": "Dashboard", "url": "github.com/ada/dash", "technologies": "React\nD3", "bullets": []}],
+  "languages": ["Español", "English"],
+  "skills_interests": "Chess\nRunning",
+  "leadership": [{"role": "Treasurer", "company": "Club", "description": "Ran budgets", "bullets": ["Led 12 events"]}],
+  "certifications": ["AWS Practitioner", {"title": "Data Cert", "organization": "Org", "issue_date": "2023", "id": "X-1", "credential_url": "https://cert.example"}],
+  "awards": ["Best thesis", {"title": "Scholarship", "organization": "Fund", "date": "2019"}],
+  "publications": [{"name": "Paper", "authors": ["A. Example", "B. Other"], "publisher": "Journal", "date": "2021"}],
+  "volunteering": [{"title": "Mentor", "company": "Code Club", "bullets": ["Mentored 8 students"]}],
+  "active_sections": {"Experience": true, "Education": true, "Skills & Interests": true, "Leadership & Activities": true, "volunteer": true, "projects": false},
+  "locale": "es",
+  "ai_provider": "ollama"
+}

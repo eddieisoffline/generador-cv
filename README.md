@@ -1,103 +1,91 @@
-# Local CV Generator
+# Generador de CV
 
-A privacy-friendly Streamlit MVP for maintaining a CV locally and exporting it
-to LaTeX, PDF, DOCX, or JSON. Everything runs on your machine: the app sends
-your CV text to no external service.
+Una web para escribir un CV por secciones, verlo al instante y descargarlo en
+PDF o Word. Todo ocurre en el navegador: no hay servidor, cuentas ni base de
+datos, y nada de lo que se escribe sale del equipo de la persona.
 
-## Run
+## Privacidad
 
-```powershell
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-streamlit run app.py
+- **Nada se envía.** La página es estática. El editor, la vista previa y las
+  exportaciones (PDF con pdfmake, Word con docx) corren en el navegador.
+- **Nada se guarda.** Sin cookies, `localStorage`, `sessionStorage` ni
+  IndexedDB. Al cerrar o recargar la pestaña el CV se borra; si hay cambios
+  sin descargar, el navegador avisa antes.
+- **Seguir otro día.** El Word descargado lleva dentro una copia de los datos
+  del CV (una parte Custom XML estándar, `urn:generador-cv:perfil`). Subirlo en
+  «Continuar con mi Word» recupera el editor. La copia solo contiene lo que el
+  CV muestra: las secciones ocultas no viajan en el archivo. Word conserva esa
+  parte al editar y guardar; Google Docs la borra.
+- **Garantizado por el navegador.** `vercel.json` sirve una Content Security
+  Policy con `connect-src 'none'` y `form-action 'none'`: aunque el código lo
+  intentara, la página no puede conectarse a ningún servidor después de cargar.
+  Las fuentes y los íconos están dentro del sitio.
+- Una prueba (`tests/privacy.test.ts`) falla si el código usa almacenamiento o
+  red.
+
+## Desarrollo
+
+Requiere Node 20 o superior.
+
+```bash
+npm install
 ```
 
-Profiles are saved as JSON under `profiles/` (ignored by git). Two empty,
-clearly marked starter schemas are in `examples/`; copy one into `profiles/`
-when desired. Replace every placeholder with your own facts.
-
-## Visual behavior
-
-The interface follows the "Generador local de CV" design system: a paper-toned
-light theme (Papel) and an ink dark theme (Tinta), Instrument Sans for the
-interface, Instrument Serif for titles, and Carlito inside the CV preview.
-`.streamlit/config.toml` themes Streamlit's own widgets for both themes, and
-`utils/ui.py` styles the custom parts with CSS `light-dark()`, so switching the
-theme from Streamlit's menu (Settings) restyles everything. Fonts are served
-from `static/fonts` (licenses and sources in its README) and icons use the
-Material Symbols font bundled with Streamlit, so the interface makes no
-requests to Google Fonts and looks the same offline.
-
-The workspace has three areas:
-
-- **Top bar**: the profile menu (open, create, duplicate, delete with inline
-  confirmation), the save status (*Unsaved draft*, *Unsaved*, *Saved*),
-  **Settings** (interface language), **Export**, and
-  **Save profile**, which is enabled only when there are changes.
-- **Section rail** (sidebar): every section in the export order with its entry
-  count, a warning count from the bullet validator, and an eye button that
-  shows or hides the section in the CV. A progress meter at the bottom
-  suggests the next step.
-- **Editor and live preview**: the editor shows only the open section; the
-  right column shows the CV sheet with the same layout as the PDF and DOCX
-  exports, outlining the section being edited.
-
-Each entry is a collapsible card with its fields in pairs, its bullets, and
-Move up / Move down / Duplicate / Remove actions. Each bullet is its own row
-with a menu for Move and Remove; validator hints and a character count appear
-under it. Title and summary are
-kept in the profile but marked as not exported, matching the generators.
-
-The layout stacks into one column on narrow screens, keeps keyboard focus
-visible, and honors `prefers-reduced-motion`. States always carry a word or an
-icon, never color alone.
-
-## Terminal logging
-
-The app writes operational logs to the terminal running Streamlit. Logs include
-application startup, profile operations, exports, and errors. CV text and bullet content are
-never logged.
-
-The default level is `INFO`. To change it in PowerShell:
-
-```powershell
-$env:CV_LOG_LEVEL = "DEBUG"
-streamlit run app.py
+```bash
+npm run dev
 ```
 
-Supported levels include `DEBUG`, `INFO`, `WARNING`, and `ERROR`.
+| Comando | Qué hace |
+| --- | --- |
+| `npm run dev` | Servidor de desarrollo en `http://localhost:5173` |
+| `npm test` | Pruebas (modelo, validador, maqueta, Word, PDF, privacidad) |
+| `npm run build` | Comprueba tipos y genera `dist/` |
+| `npm run preview` | Sirve `dist/` en `http://localhost:4173` con las mismas cabeceras que Vercel |
 
-## Exports
+## Publicar en Vercel
 
-- **LaTeX** is rendered with escaping for user text. `pdflatex` must be
-  installed and available on `PATH` for PDF export (MiKTeX or TeX Live).
-- **DOCX** is generated directly by `python-docx`; no Microsoft Office process
-  is required.
-- Both DOCX and PDF follow the Harvard-style bullet resume layout: US Letter,
-  Calibri 11 pt (Carlito in the PDF), a ruled header, centred section headings,
-  and locations/dates flushed right. Sections are ordered Education,
-  Experience, Leadership & Activities, Skills & Interests, then Projects,
-  Volunteer Experience, Certifications, Awards, and Publications. The
-  professional title and summary are not exported.
-- JSON export is the canonical portable profile format.
+1. Sube este repositorio a GitHub (la carpeta `streamlit-app/` puede ir
+   también; Vercel la ignora gracias a `.vercelignore`).
+2. En Vercel, **Add New → Project** e importa el repositorio. `vercel.json` ya
+   define el framework (Vite), el comando de build, la carpeta `dist` y las
+   cabeceras de seguridad; no hay variables de entorno.
+3. Despliega. Para comprobar las cabeceras: `curl -I https://tu-sitio.vercel.app`.
 
-The `templates/cv.tex` file contains the `%CV_CONTENT%` insertion point. The
-`templates/cv.docx` file is intentionally a text placeholder because DOCX is
-generated programmatically, making the application usable without a binary
-template.
+También se puede publicar desde la terminal con `npx vercel` (pide iniciar
+sesión). No actives Vercel Web Analytics ni Speed Insights: añadirían scripts
+que la CSP bloquea y contradicen la promesa de no recoger datos.
 
-Profiles support repeatable Leadership & Activities, Certifications, Awards,
-Publications, and Volunteer Experience entries, plus independent `skills` and
-`interests` fields. `active_sections` can contain section keys (or display
-labels) to control which populated sections are exported; an empty list keeps
-all populated sections enabled. Older profiles using certification/award
-strings remain readable.
+## Estructura
 
-## Structure
+```
+src/
+  model/       perfil (tipos, lectura tolerante de datos, visibilidad) y secciones
+  lib/         validador de viñetas y formato de fechas y enlaces
+  document/    buildDocument: una maqueta para la vista previa, el PDF y el Word
+  export/      Word (docx + datos incrustados), PDF (pdfmake) y lectura del Word
+  components/  interfaz (React) con el sistema de diseño
+  i18n/        textos en español e inglés
+  styles/      tokens, componentes y diseño de la app
+tests/         Vitest
+scripts/       profile-to-docx: convierte perfiles JSON de la versión Streamlit
+streamlit-app/ versión anterior en Python, para uso local
+```
 
-`models/` contains typed dataclasses and JSON conversion, `generators/` contains
-exporters, `validators/` performs structural bullet checks, and `utils/` contains localization and safe
-profile storage. The UI supports English and Spanish labels, profile
-create/load/save/delete, persistent Streamlit session state, preview, and
-downloads.
+## Perfiles de la versión Streamlit
+
+La web no abre JSON. Para continuar en la web un perfil guardado por la versión
+Streamlit, conviértelo en tu equipo a un Word con datos:
+
+```bash
+npm run profile-to-docx -- streamlit-app/profiles/mi_perfil.json --out streamlit-app/exports
+```
+
+El título profesional, el resumen y las secciones ocultas no pasan al Word,
+porque ninguna de las dos versiones los exporta.
+
+## Licencias de terceros
+
+- Instrument Sans, Instrument Serif y Carlito: SIL Open Font License 1.1
+  (`public/fonts/licenses`). El PDF usa una versión reducida de Carlito con
+  otro nombre, como exige su licencia (`src/export/fonts/README.md`).
+- Íconos: Material Symbols Rounded, Apache 2.0.
