@@ -1,0 +1,22 @@
+name: Proponer una mejora
+description: Una idea para que el generador sea más útil.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Qué necesitas
+      description: Explica el problema o la situación, no solo la solución.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta
+      description: Cómo imaginas que funcionaría.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacidad
+      options:
+        - label: La propuesta no necesita enviar datos a un servidor ni guardarlos en el navegador.

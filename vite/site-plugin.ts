@@ -171,7 +171,8 @@ export function siteFooter(page: PageDef): string {
     // The 404 page is bilingual, so it links both sets.
     parts.push(legalNav("en", page.path, "Legal"));
   }
-  parts.push(`<p>${contact}: <a href="mailto:${SITE.email}">${SITE.email}</a></p>`);
+  const source = page.lang === "es" ? "Código abierto (licencia MIT)" : "Open source (MIT licence)";
+  parts.push(`<p>${contact}: <a href="mailto:${SITE.email}">${SITE.email}</a> · <a href="${SITE.repository}">${source}</a></p>`);
   return `<footer class="pg-footer">${parts.join("")}</footer>`;
 }
 

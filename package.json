@@ -1,8 +1,21 @@
 {
   "name": "generador-cv",
+  "version": "1.1.0",
+  "description": "Generador de CV que funciona entero en el navegador: PDF y Word, sin cuentas ni datos guardados.",
+  "license": "MIT",
   "private": true,
-  "version": "1.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddieisoffline/generador-cv.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eddieisoffline/generador-cv/issues"
+  },
+  "homepage": "https://github.com/eddieisoffline/generador-cv#readme",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

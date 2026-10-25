@@ -1,0 +1,52 @@
+name: Informar de un error
+description: Algo no funciona como debería.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por avisar. **No incluyas datos personales reales** (tu CV, tu correo, tu teléfono): usa datos inventados.
+        Si es un problema de seguridad, no abras un issue y sigue SECURITY.md.
+  - type: textarea
+    id: what
+    attributes:
+      label: Qué pasó
+      description: Describe el error y qué esperabas que ocurriera.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducirlo
+      placeholder: |
+        1. Empezar un CV nuevo
+        2. Ir a Experiencia y agregar una entrada
+        3. Descargar el PDF
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Parte afectada
+      options:
+        - Editor
+        - Vista previa
+        - PDF
+        - Word
+        - Continuar con mi Word (importar)
+        - Páginas legales o 404
+        - Otra
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Navegador y sistema
+      placeholder: Chrome 140 en Windows 11
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Capturas o archivos
+      description: Capturas de pantalla o un .docx/.pdf de ejemplo con datos inventados.

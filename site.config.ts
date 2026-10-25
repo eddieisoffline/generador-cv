@@ -11,6 +11,8 @@ export const SITE = {
   name: { es: "Generador de CV", en: "CV Generator" },
   /** The only contact published, as chosen by the owner. */
   email: "e.ddieag451@outlook.com",
+  /** Public source code (MIT licence). */
+  repository: "https://github.com/eddieisoffline/generador-cv",
   /** When the legal texts last changed (not the build date). */
   legalUpdated: { iso: "2026-10-25", es: "25 de octubre de 2026", en: "25 October 2026" },
   themeColor: { light: "#f3f1ec", dark: "#131312" },
