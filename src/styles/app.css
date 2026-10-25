@@ -182,8 +182,17 @@
 .cv-paper [data-live="true"] { border-radius: 2px; background: color-mix(in oklab, #2346d1 9%, transparent); outline: 1.5px solid #2346d1; outline-offset: 0.25em; }
 .cv-paper__empty { display: grid; place-items: center; min-height: 16em; padding: 0 3em; color: #5b574e; text-align: center; font-family: var(--font-sans); font-size: 1.4em; line-height: 1.4; }
 
+/* ── Legal links ────────────────────────────────────── */
+.cv-legal { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-4); font-size: 13px; line-height: 18px; }
+.cv-legal a { color: var(--ink-muted); text-underline-offset: 2px; }
+.cv-legal a:hover { color: var(--ink); }
+.cv-link { color: var(--pen); text-underline-offset: 2px; }
+.cv-legal a:focus-visible, .cv-link:focus-visible { outline: 2px solid transparent; border-radius: var(--radius-xs); box-shadow: var(--focus-ring); }
+.cv-rail__legal { margin-top: var(--space-3); padding: 0 var(--space-3); }
+
 /* ── Welcome ────────────────────────────────────────── */
-.cv-welcome { display: grid; min-height: 100dvh; place-items: center; padding: var(--space-6) var(--space-4); }
+.cv-welcome { display: grid; grid-template-rows: 1fr auto; gap: var(--space-5); min-height: 100dvh; place-items: center; padding: var(--space-6) var(--space-4); }
+.cv-welcome__legal { justify-content: center; }
 .cv-welcome__card {
   position: relative;
   display: grid;

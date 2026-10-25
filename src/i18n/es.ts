@@ -19,6 +19,10 @@ export const es: Record<MessageKey, string> = {
 
   // Marco de la app
   app_name: "Generador de CV",
+  doc_title: "Generador de CV gratis y privado · Crea tu CV en el navegador",
+  legal_nav: "Textos legales",
+  privacy_full: "Leer la política de privacidad completa",
+  new_tab: "se abre en una pestaña nueva",
   skip_to_editor: "Saltar al editor",
   welcome_title: "Tu CV, en orden.",
   welcome_text: "Escríbelo por secciones, mira la hoja al instante y descárgalo en PDF o Word.",

@@ -7,6 +7,7 @@ import { sectionIsActive, type Locale, type Profile } from "../model/profile";
 import { CV_SECTIONS, HEADER_SECTION, sectionCount, type Section } from "../model/sections";
 import type { Action, State } from "../state";
 import { Icon } from "./icons";
+import { LegalLinks } from "./LegalLinks";
 
 interface RailProps {
   state: State;
@@ -46,6 +47,7 @@ export function Rail({ state, dispatch, locale, onNavigate, onPrivacy }: RailPro
         {" · "}
         {t(locale, "privacy_short")}
       </p>
+      <LegalLinks locale={locale} newTab className="cv-rail__legal" />
     </nav>
   );
 }

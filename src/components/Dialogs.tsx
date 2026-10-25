@@ -1,5 +1,6 @@
 /** Settings, privacy, confirmation and download dialogs. */
 
+import { LEGAL_LINKS } from "../../site.config";
 import { t } from "../i18n";
 import type { Locale } from "../model/profile";
 import { Icon } from "./icons";
@@ -60,6 +61,12 @@ export function PrivacyDialog({ open, onClose, locale }: { open: boolean; onClos
           </li>
         ))}
       </ul>
+      <p className="cv-small" style={{ margin: 0 }}>
+        <a className="cv-link" href={LEGAL_LINKS[locale][1].path} target="_blank" rel="noopener">
+          {t(locale, "privacy_full")}
+          <span className="cv-visually-hidden"> ({t(locale, "new_tab")})</span>
+        </a>
+      </p>
     </Modal>
   );
 }

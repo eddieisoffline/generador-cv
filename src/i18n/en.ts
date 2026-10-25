@@ -17,6 +17,10 @@ export const en = {
 
   // App frame
   app_name: "CV Generator",
+  doc_title: "Free, private CV generator · Make your CV in your browser",
+  legal_nav: "Legal",
+  privacy_full: "Read the full privacy policy",
+  new_tab: "opens in a new tab",
   skip_to_editor: "Skip to the editor",
   welcome_title: "Your CV, in order.",
   welcome_text: "Write it section by section, watch the page update as you type, and download it as PDF or Word.",

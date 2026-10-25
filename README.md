@@ -55,6 +55,46 @@ También se puede publicar desde la terminal con `npx vercel` (pide iniciar
 sesión). No actives Vercel Web Analytics ni Speed Insights: añadirían scripts
 que la CSP bloquea y contradicen la promesa de no recoger datos.
 
+## Páginas legales, SEO y buscadores
+
+- **Páginas estáticas** (HTML sin JavaScript, en español e inglés), con URL
+  limpias gracias a `cleanUrls` en `vercel.json`:
+  - `/aviso-legal` y `/en/legal-notice`
+  - `/privacidad` y `/en/privacy`
+  - `/cookies` y `/en/cookies`
+  - la 404 bilingüe
+- **Cookies:** el sitio no usa cookies ni almacenamiento, así que no lleva banner.
+- **Una sola fuente:** `site.config.ts` guarda el correo de contacto, la fecha de
+  los textos legales y el título y la descripción de cada página.
+- **Lo que genera `vite/site-plugin.ts` al compilar:**
+  - `canonical`, Open Graph, Twitter Card, `hreflang`, íconos y `theme-color`;
+  - el JSON-LD `WebApplication` de la portada;
+  - `sitemap.xml` y `robots.txt`.
+- **La URL del sitio:** sale de `SITE_URL`. Si no está definida, se usa
+  `VERCEL_PROJECT_PRODUCTION_URL`, que Vercel define al compilar, así que con el
+  dominio `.vercel.app` o uno propio no hay que configurar nada.
+- **Google Search Console:**
+  1. Añade la propiedad.
+  2. Verifícala por DNS, o define `GOOGLE_SITE_VERIFICATION` en Vercel con el
+     código de la meta etiqueta y vuelve a desplegar.
+  3. Envía `/sitemap.xml`.
+
+  No hay ficha de Google Business: es solo para negocios con local o zona de servicio.
+- **HTTPS:** Vercel redirige siempre a HTTPS. Además, `vercel.json` envía HSTS y
+  `upgrade-insecure-requests`.
+- **Íconos e imagen para redes:** `favicon.ico`, `apple-touch-icon.png`,
+  `icon-*.png` y `og-image.jpg`. Se generaron una vez con Chrome sin interfaz a
+  partir de `public/favicon.svg` y del motivo de la portada. Una prueba falla si
+  alguna imagen de `public/` pasa de 100 KB.
+- **Comprobaciones:**
+  - `npm run check:links` revisa los enlaces internos y las anclas de `dist/`;
+    con `--external` también los externos.
+  - `npm run lighthouse` mide la portada servida por `npm run preview`.
+
+  Lighthouse marca «robots.txt» como fallido porque lo descarga desde la página y
+  la CSP (`connect-src 'none'`) lo bloquea. Los buscadores lo leen directamente,
+  sin ese problema.
+
 ## Estructura
 
 ```
@@ -67,6 +107,8 @@ src/
   i18n/        textos en español e inglés
   styles/      tokens, componentes y diseño de la app
 tests/         Vitest
+vite/          plugin que genera metas, JSON-LD, sitemap y robots desde site.config.ts
+*.html, en/    portada (index.html), páginas legales y 404
 scripts/       profile-to-docx: convierte perfiles JSON de la versión Streamlit
 streamlit-app/ versión anterior en Python, para uso local
 ```

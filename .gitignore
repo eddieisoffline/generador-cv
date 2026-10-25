@@ -12,3 +12,4 @@ node_modules/
 dist/
 .vercel/
 .claude/settings.local.json
+lighthouse-report.html

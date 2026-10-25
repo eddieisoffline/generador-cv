@@ -4,6 +4,7 @@ import { useState } from "react";
 import { t } from "../i18n";
 import type { Locale } from "../model/profile";
 import { Icon } from "./icons";
+import { LegalLinks } from "./LegalLinks";
 import { Callout } from "./ui";
 
 interface WelcomeProps {
@@ -77,6 +78,7 @@ export function Welcome({ locale, error, onStart, onOpen, onFile, onPrivacy, onS
           </button>
         </div>
       </div>
+      <LegalLinks locale={locale} className="cv-welcome__legal" />
     </main>
   );
 }
